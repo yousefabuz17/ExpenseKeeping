@@ -1,0 +1,6 @@
+[tool.black]
+include = "*.py"
+line-length = 150
+skip-string-normalization = "true"
+experimental-string-processing = "false"
+pyi = "true"
