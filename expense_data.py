@@ -14,8 +14,8 @@ from functools import lru_cache
 from pathlib import Path
 from pprint import pprint
 from typing import NamedTuple
-
-import aiohttp
+import black
+import aiohttp, aiohttp_cache
 import asyncpg
 import magic
 import pandas as pd
@@ -33,6 +33,7 @@ class FileInfo:
     type_: str = None
     path: str = None
     category: str = None
+    subcat: str = None
     contents: str = None
     date: str = None
     time: str = None
@@ -73,21 +74,25 @@ class Currency:
     rate: float
     sym: str
     
+    @aiohttp_cache.cache(expires=7200)
     async def get_rates():
         config = ConfigInfo.get_config()
         async with aiohttp.ClientSession(raise_for_status=True) as session:
-            async with session.get(config.apis['currency_url'], params={'app_id':config.apis['currency_api'],
-                                                                        'base':'USD'}) as response:
-                response = await response.json()
-                data = response['rates']
-                currency_data = OrderedDict({key: Currency(rate=value, sym=get_currency_symbol(key, locale="en_US")[-3:]) for key, value in data.items()})
-                return currency_data
+            async with session.get(config.apis['currency_url'],
+                                    params={'app_id':config.apis['currency_api'],'base':'USD'}) as response:
+                if response.status == 200:
+                    response = await response.json()
+                    data = response['rates']
+                    currency_data = OrderedDict({key: Currency(rate=value, sym=get_currency_symbol(key, locale="en_US")[-3:]) for key, value in data.items()})
+                    return currency_data
     
     @staticmethod
     async def exchange_rate(total, from_curr, to_curr='USD'):
         currency_data = await Currency.get_rates()
+        if from_curr==to_curr:
+            return f'${total.strip("$")}'
         rate = Decimal(currency_data[to_curr].rate) / Decimal(currency_data[from_curr].rate)
-        return f'{currency_data[to_curr].sym} {rate * total:.2f}'
+        return f'{currency_data[to_curr].sym}{rate * Decimal(total.strip("$")):.2f}'
 
 class ExpenseDB:
     config: ConfigInfo
@@ -140,6 +145,7 @@ class Wrapper:
                                     'Language': str(file.lang),
                                     'Currency': file.currency,
                                     'Category': str(file.category),
+                                    'Sub-Category': str(file.subcat),
                                     'Amount': str(file.amount),
                                     'Vendor': str(file.vendor),
                                     'Contents': str(file.contents)
@@ -177,6 +183,7 @@ class Wrapper:
                         api_response = input_doc.parse(documents.TypeReceiptV5)
                         file.name = api_response.document.filename
                         file.category = api_response.document.category
+                        file.subcat = api_response.document.subcategory
                         file.date = api_response.document.date
                         file.amount = api_response.document.total_amount
                         file.lang = api_response.document.locale
@@ -197,46 +204,106 @@ class Wrapper:
     def _modify_json(print_results=True):
         def decorator(func):
             @functools.wraps(func)
-            def wrapper(*args):
-                json_file = func(*args)
-                new_json = OrderedDict(sorted(json_file.items(), key=lambda i: i[1]['Date']))
-                for _, dates in new_json.items():
-                    modified_date = dt.strptime(dates['Date'], '%Y-%m-%d').strftime('%m-%d-%Y')
-                    dates['Date'] = modified_date
+            async def wrapper(*args):
+                json_file = await func(*args)
+                for _, item in json_file.items():
                     try:
-                        modified_time = dt.strptime(dates.get('Time', ''), '%I:%M').strftime('%I:%M %p')
-                        dates['Time'] = modified_time
+                        modified_date = dt.strptime(item['Date'], '%Y-%m-%d').strftime('%m-%d-%Y')
+                        item['Date'] = modified_date
+                        modified_time = dt.strptime(item.get('Time', ''), '%I:%M').strftime('%I:%M %p')
+                        item['Time'] = modified_time
                     except ValueError:
-                        dates['Time'] = ''
-                    
-                    with open(Path(__file__).parent.absolute() / 'receipt_info.json', 'w') as new_file:
+                        modified_currency = await Currency.exchange_rate(total=item['Amount'],
+                                                                        from_curr=item['Currency'])
+                        item['Amount'] = modified_currency
+                        language = item['Language'].split(';')[-3].lstrip()
+                        item['Language'] = language if language.isupper() else item['Language'].split(';')[-2].lstrip()
+                    new_json = OrderedDict(sorted(json_file.items(), key=lambda i: float(i[1]['Amount'].strip('$'))))
+                    with open(Path(__file__).parent.absolute() / 'modified_receipts.json', 'w') as new_file:
                         json.dump(new_json, new_file, indent=2)
                 return new_json
             return wrapper
         return decorator
+    
+    def _json_to_pd(print_results=True):
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                json_file = await func(*args)
+                columns = set()
+                rows = []
+                for _, item in enumerate(json_file.items()):
+                    for contents in item[1].items():
+                        columns.add(contents[0])
+                    rows.append(item[1])
+                df = pd.DataFrame(rows)
+                return df
+            return wrapper
+        return decorator
+                
+    
+    def _clean_pd(print_results=True):
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                df = await func(*args)
+                pd.set_option('display.max_columns', None)
+                df["Time"] = df["Time"].replace("", float("nan")).str.strip()
+                df['Time'].fillna('00:00', inplace=True)
+                df['Vendor'] = df['Vendor'].replace('', float('nan')).str.strip()
+                df['Vendor'].fillna('UNKNOWN', inplace=True)
+                df.index = range(1, len(df)+1)
+                return df
+            return wrapper
+        return decorator
+
 
 class TextExtractor:
-    def __init__(self):
-        self.dirs = Path(__file__).parent.absolute() / ConfigInfo.get_dir().dirs['dir']
-        self.files = None
+    _instance = False
     
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+        return cls._instance
+
+    def __init__(self):
+        if not hasattr(self, 'initialized'):
+            self.initialized = True
+            self.dirs = Path(__file__).parent.absolute() / ConfigInfo.get_dir().dirs['dir']
+            self.files = None
+            self.df = None
+
+    @aiohttp_cache.cache(expires=7200)
     @Wrapper._receipt_writer()
     @Wrapper._receipt_parser()
-    async def get_files(self):
+    async def parse_receipts(self):
         self.files = [Path(root) / i for root, _, files in os.walk(self.dirs) for i in files if files]
         return self.files
 
-    @lru_cache(maxsize=None)
     @Wrapper._modify_json()
-    @staticmethod
-    def receipt_json():
+    async def receipt_json(self):
         receipt_file = json.load(open(Path(__file__).parent.absolute() / 'receipt_info.json', encoding='utf-8'))
         return receipt_file
-
+    
+    @aiohttp_cache.cache(expires=7200)
+    @Wrapper._clean_pd()
+    @Wrapper._json_to_pd()
+    async def get_pd(self):
+        modified_json = json.load(open(Path(__file__).parent.absolute() / 'modified_receipts.json', encoding='utf-8'))
+        return modified_json
+    
+@aiohttp_cache.cache(expires=7200)
 async def main():
-    # all_files = await TextExtractor().get_files()
-    # pprint(all_files)
-    pprint(TextExtractor.receipt_json())
+    text_extract = TextExtractor()
+    
+    # parsed_receipts = await asyncio.gather(
+    #                 text_extract.parse_receipts(),
+    #                 text_extract.receipt_json()
+    #             )
+    df = await text_extract.get_pd()
+    print(df)
+    
+#!> Merge other csv files
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
