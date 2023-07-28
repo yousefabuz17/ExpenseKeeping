@@ -1,5 +1,6 @@
 import asyncio
 import functools
+import json
 import os
 import re
 import subprocess
@@ -7,21 +8,20 @@ from collections import OrderedDict
 from concurrent.futures import ThreadPoolExecutor
 from configparser import ConfigParser
 from dataclasses import dataclass
+from datetime import datetime as dt
 from decimal import Decimal
 from functools import lru_cache
 from pathlib import Path
 from pprint import pprint
 from typing import NamedTuple
-import nltk
+
 import aiohttp
 import asyncpg
+import magic
 import pandas as pd
-import pytesseract
 import requests_cache
 from babel.numbers import get_currency_symbol
-from PIL import Image
 from mindee import Client, documents
-import magic
 
 requests_cache.install_cache(expire_after=7200)
 
@@ -34,6 +34,11 @@ class FileInfo:
     path: str = None
     category: str = None
     contents: str = None
+    date: str = None
+    time: str = None
+    amount: str = None
+    vendor: str = None
+    currency: str = None
     
 class ConfigInfo(NamedTuple):
     host: str = None
@@ -46,8 +51,8 @@ class ConfigInfo(NamedTuple):
     class DirInfo:
         dirs: dict = None
     
-    @staticmethod
     @lru_cache(maxsize=None)
+    @staticmethod
     def get_config():
         config_parser = ConfigParser(allow_no_value=True)
         config_parser.read('config.ini')
@@ -55,8 +60,8 @@ class ConfigInfo(NamedTuple):
                             apis=OrderedDict(config_parser.items('API')))
         return config
     
-    @staticmethod
     @lru_cache(maxsize=None)
+    @staticmethod
     def get_dir():
         config_parser = ConfigParser(allow_no_value=True)
         config_parser.read('config.ini')
@@ -117,11 +122,6 @@ class ExpenseDB:
         pass
 
 
-class ReceiptProcessor:
-    def __init__(self):
-        pass
-
-
 class Wrapper:
     def __init__(self):
         pass
@@ -131,10 +131,25 @@ class Wrapper:
             @functools.wraps(func)
             async def wrapper(*args):
                 files = await func(*args)
-                for i, j in enumerate(files, start=1):
-                    with open('receipt_info.txt', 'a') as file_info:
-                        file_info.write(f'File {i}:\n{j.contents}\n')
-
+                receipt_data = {}
+                for _, file in enumerate(files):
+                    if file.type_ == 'pdf':
+                        receipt_data[file.name] = {
+                                    'Date': str(file.date),
+                                    'Time': str(file.time),
+                                    'Language': str(file.lang),
+                                    'Currency': file.currency,
+                                    'Category': str(file.category),
+                                    'Amount': str(file.amount),
+                                    'Vendor': str(file.vendor),
+                                    'Contents': str(file.contents)
+                                }
+                    else:
+                        pass
+                    
+                with open(Path(__file__).parent.absolute() / 'receipt_info.json', 'w') as receipt_info:
+                        json.dump(receipt_data, receipt_info, indent=2)
+                        
                 return files
             return wrapper
         return decorator
@@ -150,17 +165,25 @@ class Wrapper:
                         'xls': pd.read_excel
                     }
                 mindee_client = Client(api_key=ConfigInfo.get_config().apis['mindee_api'])
-                for _, file in enumerate(files, start=1):
+                for _, file in enumerate(files):
                     path_ = Path(file)
                     file = file.as_posix()
-                    file_name = (file_name := re.findall(r'(\w+)\.[pdf|json|csv|png|jpeg|jpg|txt]', file)) and file_name[0]
+                    # file_name = (file_name := re.findall(r'(\w+)\.[pdf|json|csv|png|jpeg|jpg|txt]', file)) and file_name[0]
                     # type_ = (type_ := re.findall(r'\.(pdf|json|csv|png|jpeg|jpg|txt)$', file.lower())) and type_[0]
                     type_ = magic.from_file(path_, mime=True).split('/')[-1]
-                    file = FileInfo(name=file_name, type_=type_, path=path_)
+                    file = FileInfo(type_=type_, path=path_)
                     if file.type_ in ('jpeg', 'png', 'jpg', 'pdf'):
                         input_doc = mindee_client.doc_from_path(file.path)
                         api_response = input_doc.parse(documents.TypeReceiptV5)
+                        file.name = api_response.document.filename
+                        file.category = api_response.document.category
+                        file.date = api_response.document.date
+                        file.amount = api_response.document.total_amount
+                        file.lang = api_response.document.locale
+                        file.vendor = api_response.document.supplier_name
                         file.contents = api_response.document
+                        file.time = api_response.document.time
+                        file.currency = str(api_response.document.locale).split(';')[-2].lstrip()
                         new_files.append(file)
                     
                     if file.type_ in file_type_mapping:
@@ -171,48 +194,49 @@ class Wrapper:
             return wrapper
         return decorator
     
-    # def _receipt_(print_results=True):
-    #     def decorator(func):
-    #         @functools.wraps(func)
-    #         async def wrapper(*args):
-    #             files = await func(*args)
-    #             try:
-    #                 for file in files:
-    #                     if file.type_ not in ('csv', 'json'):
-    #                         tokens = nltk.word_tokenize(file.contents)
-    #                         detected_lang = detect(' '.join(tokens))
-    #                         # if file.lang != detected_lang:
-    #                         #     file.lang = detected_lang
-    #                     else:
-    #                         pass
-    #                 return files
-
-    #             except Exception as e:
-    #                 # print(f"Unsupported language pair: {e}")
-    #                 pass
-                
-    #             return files
-    #         return wrapper
-    #     return decorator
+    def _modify_json(print_results=True):
+        def decorator(func):
+            @functools.wraps(func)
+            def wrapper(*args):
+                json_file = func(*args)
+                new_json = OrderedDict(sorted(json_file.items(), key=lambda i: i[1]['Date']))
+                for _, dates in new_json.items():
+                    modified_date = dt.strptime(dates['Date'], '%Y-%m-%d').strftime('%m-%d-%Y')
+                    dates['Date'] = modified_date
+                    try:
+                        modified_time = dt.strptime(dates.get('Time', ''), '%I:%M').strftime('%I:%M %p')
+                        dates['Time'] = modified_time
+                    except ValueError:
+                        dates['Time'] = ''
+                    
+                    with open(Path(__file__).parent.absolute() / 'receipt_info.json', 'w') as new_file:
+                        json.dump(new_json, new_file, indent=2)
+                return new_json
+            return wrapper
+        return decorator
 
 class TextExtractor:
     def __init__(self):
         self.dirs = Path(__file__).parent.absolute() / ConfigInfo.get_dir().dirs['dir']
         self.files = None
     
-    # @Wrapper._translate_contents()
-    # @Wrapper._file_reader()
     @Wrapper._receipt_writer()
     @Wrapper._receipt_parser()
     async def get_files(self):
         self.files = [Path(root) / i for root, _, files in os.walk(self.dirs) for i in files if files]
         return self.files
 
+    @lru_cache(maxsize=None)
+    @Wrapper._modify_json()
+    @staticmethod
+    def receipt_json():
+        receipt_file = json.load(open(Path(__file__).parent.absolute() / 'receipt_info.json', encoding='utf-8'))
+        return receipt_file
 
 async def main():
-    all_files = await TextExtractor().get_files()
-    print(all_files)
-            
+    # all_files = await TextExtractor().get_files()
+    # pprint(all_files)
+    pprint(TextExtractor.receipt_json())
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
