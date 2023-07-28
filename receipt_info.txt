@@ -1,0 +1,2540 @@
+File 1:
+Receipt V5 Prediction
+=====================
+:Filename: monoprix-325435432.pdf
+:Expense Locale: fr-FR; fr; FR; EUR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2018-02-10
+:Purchase Time: 14:44
+:Total Amount: 6.50
+:Total Net:
+:Total Tax: 0.52
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.27          |        | 10.00    | 0.43          |
+  +---------------+--------+----------+---------------+
+
+  |               |        | 5.50     | 0.09          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MONOPRIX
+:Supplier Company Registrations:
+:Supplier Address: code acces sanitaires rdc c2246
+:Supplier Phone Number: 0800084000
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | PAIN                                 | 1.00     | 0.30         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | PAIN                                 | 1.00     | 4.70         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 2:
+Receipt V5 Prediction
+=====================
+:Filename: 20190720_018.pdf
+:Expense Locale: en; HKD;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-12
+:Purchase Time: 13:05
+:Total Amount: 42.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: WHOLE FOODS MARKET
+:Supplier Company Registrations:
+:Supplier Address: cc wu building
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Cafe Latte                           | 1.00     | 42.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 3:
+Receipt V5 Prediction
+=====================
+:Filename: arlandaexpress_0000826085.pdf
+:Expense Locale: en; SEK;
+:Purchase Category: transport
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-30
+:Purchase Time: 20:59
+:Total Amount: 295.00
+:Total Net:
+:Total Tax: 16.70
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | VAT    | 6.00     | 16.70         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: ARLANDAEXPRESS
+:Supplier Company Registrations:
+:Supplier Address: ros kundtjanst 0771 720 200
+:Supplier Phone Number:
+:Line Items:
+
+File 4:
+Receipt V5 Prediction
+=====================
+:Filename: bestbuy-20211211_013.pdf
+:Expense Locale: en-US; en; US; USD;
+:Purchase Category: miscellaneous
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2021-12-02
+:Purchase Time: 20:36
+:Total Amount: 381.06
+:Total Net: 348.00
+:Total Tax: 33.06
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | TAX    |          | 33.06         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: VERIZON
+:Supplier Company Registrations:
+:Supplier Address: 17545 gale ave city of industry ca 91748
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | 899-00182-0 QUEST 2, 128GB           |          | 299.00       | 28.43      |
+  +--------------------------------------+----------+--------------+------------+
+  | 301-00369-0 2 CARRYING CASE          |          | 49.00        | 4.63       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 5:
+Receipt V5 Prediction
+=====================
+:Filename: ca-20220610_001.pdf
+:Expense Locale: es-ES; es; ES; EUR;
+:Purchase Category: miscellaneous
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2022-05-17
+:Purchase Time: 10:32
+:Total Amount: 7.99
+:Total Net: 6.60
+:Total Tax: 1.39
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 6.60          |        | 21.00    | 1.39          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: W W CA COM
+:Supplier Company Registrations: B28757730
+:Supplier Address: c val portillo i ndeg13 madrid 28108
+:Supplier Phone Number: 963331453
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | 6087481 CINTURON 1002 H 62           |          | 7.99         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 6:
+                 Date               Account        Category  ...  Amount Currency  Account.1
+0      3/2/2022 10:11  CUB - online payment            Food  ...    50.0      INR       50.0
+1      3/2/2022 10:11  CUB - online payment           Other  ...   300.0      INR      300.0
+2      3/1/2022 19:50  CUB - online payment            Food  ...    78.0      INR       78.0
+3      3/1/2022 18:56  CUB - online payment  Transportation  ...    30.0      INR       30.0
+4      3/1/2022 18:22  CUB - online payment            Food  ...    67.0      INR       67.0
+..                ...                   ...             ...  ...     ...      ...        ...
+272  11/22/2021 14:16  CUB - online payment            Food  ...    90.0      INR       90.0
+273  11/22/2021 14:16  CUB - online payment            Food  ...    97.0      INR       97.0
+274  11/21/2021 17:07  CUB - online payment  Transportation  ...   130.0      INR      130.0
+275  11/21/2021 15:50  CUB - online payment            Food  ...   875.0      INR      875.0
+276  11/21/2021 13:30  CUB - online payment           Other  ...  2000.0      INR     2000.0
+
+[277 rows x 11 columns]
+File 7:
+Receipt V5 Prediction
+=====================
+:Filename: taxi_010E33SD547.pdf
+:Expense Locale: en-US; en; US; USD;
+:Purchase Category: transport
+:Purchase Subcategory: taxi
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2018-12-02
+:Purchase Time: 13:46
+:Total Amount: 21.68
+:Total Net:
+:Total Tax: 0.53
+:Tip and Gratuity: 3.61
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | TAX    |          | 0.53          |
+  +---------------+--------+----------+---------------+
+:Supplier Name:
+:Supplier Company Registrations:
+:Supplier Address:
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | FARE CC FEE: AMOUNT:                 | 1.00     |              | 1.00       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 8:
+Receipt V5 Prediction
+=====================
+:Filename: 20210906_001.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: transport
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2021-09-03
+:Purchase Time: 16:54
+:Total Amount: 12.50
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | UST    | 20.00    |               |
+  +---------------+--------+----------+---------------+
+:Supplier Name: UND I N UNS EN APP UNTERWEGS
+:Supplier Company Registrations: ATU43143200
+:Supplier Address: mautstelle st michael 5582 st michael i l hof 55 telefon
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Maut fur Kategorie: 1/PKW bis Tarif EUR: 12.50 Terminal Mastercard |          |              | 3.50       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 9:
+Receipt V5 Prediction
+=====================
+:Filename: 20210906_008.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: transport
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2021-08-25
+:Purchase Time: 17:06
+:Total Amount: 7.60
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | UST    | 20.00    |               |
+  +---------------+--------+----------+---------------+
+:Supplier Name: ALI ERHALTLICH
+:Supplier Company Registrations: ATU43143200
+:Supplier Address: rotenturmstr 5 9 1010 wien uid nr atu 43143200
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | HMS                                  |          | 25021.00     |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Maut fur Tarif Terminal unbar EUR: : Kategorie: 1/PKW 7.60 Mastercard 7.60 EUR |          | 3.50         | 2998.13    |
+  +--------------------------------------+----------+--------------+------------+
+
+File 10:
+Receipt V5 Prediction
+=====================
+:Filename: scandic_808219768.pdf
+:Expense Locale: en; SEK;
+:Purchase Category: parking
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-06
+:Purchase Time:
+:Total Amount: 9190.00
+:Total Net: 8205.36
+:Total Tax: 984.64
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 8205.36       | VAT    | 12.00    | 984.64        |
+  +---------------+--------+----------+---------------+
+:Supplier Name: ORIGINALRECEIPT
+:Supplier Company Registrations:
+:Supplier Address: friedrichstr 123 101 17 berlin germany
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | VISA/MasterCard/j                    |          | 9190.00      | 30.49      |
+  +--------------------------------------+----------+--------------+------------+
+  | Accomm odation                       |          | 1200.00      | 30.49      |
+  +--------------------------------------+----------+--------------+------------+
+  | Accomm odati on                      | 1.00     | 1200.00      | 55.19      |
+  +--------------------------------------+----------+--------------+------------+
+  | Accomm odation                       |          | 1500.00      | 5.19       |
+  +--------------------------------------+----------+--------------+------------+
+  | ACCOIIIm odation                     |          | 1900.00      | 0.55       |
+  +--------------------------------------+----------+--------------+------------+
+  | Accomm odation                       |          | 2000.00      | 4.55       |
+  +--------------------------------------+----------+--------------+------------+
+  | Accomm odation                       |          | 1390.00      | 55.19      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 11:
+Receipt V5 Prediction
+=====================
+:Filename: burgerking_8448.pdf
+:Expense Locale: SEK;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-04
+:Purchase Time: 19:55
+:Total Amount: 119.00
+:Total Net: 106.25
+:Total Tax: 12.75
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 106.25        |        | 12.00    | 12.75         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: SVERIGES GODASTE ITTO
+:Supplier Company Registrations:
+:Supplier Address: kings number 7845r 15 17 11120 sttckhh telefond08811022666 bac
+:Supplier Phone Number: 151711120
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | 1 DBL WHOPPER M                      |          | 119.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | DBL WHOPPER                          |          | 78.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | EXTRA BACON 6 KR SWEETPPOTERIE LARGE COLAZERO NOICE |          | 6.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 12:
+Receipt V5 Prediction
+=====================
+:Filename: eatmarket_42174.pdf
+:Expense Locale: SEK;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-02
+:Purchase Time: 13:18
+:Total Amount: 150.00
+:Total Net:
+:Total Tax: 16.07
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               |        | 12.00    | 16.07         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: EAT NARKET
+:Supplier Company Registrations:
+:Supplier Address: jakobsbergsgatan 15 11144 stockholm
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Bibimbap                             |          | 150.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 13:
+Receipt V5 Prediction
+=====================
+:Filename: kebabhouse_100416229.pdf
+:Expense Locale: SEK;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-01
+:Purchase Time: 20:56
+:Total Amount: 97.00
+:Total Net: 86.61
+:Total Tax: 10.39
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 86.61         |        | 12.00    | 10.39         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: KEBAB HOUSE
+:Supplier Company Registrations:
+:Supplier Address: kungsgatan 68 103 67 stockholm desat ab
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | 103 Meny 2 Kebab                     | 1.00     | 97.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 14:
+Receipt V5 Prediction
+=====================
+:Filename: maxburger_6206.pdf
+:Expense Locale: en; SEK;
+:Purchase Category: miscellaneous
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-03
+:Purchase Time: 18:49
+:Total Amount: 122.00
+:Total Net: 108.93
+:Total Tax: 13.07
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 108.93        | TAX    | 12.00    | 13.07         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MAX BUR GERS A
+:Supplier Company Registrations:
+:Supplier Address: kungsgatan 44 11135 stockholm
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Spicy Brioche Beef-mal               | 1.00     | 97.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Spicy fries                          | 1.00     | 25.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 15:
+Receipt V5 Prediction
+=====================
+:Filename: horizonparking_20190820.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: transport
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-30
+:Purchase Time:
+:Total Amount: 3.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: HORIZONPARKING
+:Supplier Company Registrations: 143240745
+:Supplier Address:
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Iss Date Fee                         |          |              | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 16:
+Receipt V5 Prediction
+=====================
+:Filename: rosestreet_20190829.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: miscellaneous
+:Purchase Subcategory:
+:Document Type: CREDIT CARD RECEIPT
+:Purchase Date: 2019-08-29
+:Purchase Time: 16:52
+:Total Amount: 1.50
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: SE ST
+:Supplier Company Registrations: 663758203
+:Supplier Address:
+:Supplier Phone Number:
+:Line Items:
+
+File 17:
+Receipt V5 Prediction
+=====================
+:Filename: shell_20190839.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: gasoline
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-30
+:Purchase Time: 19:10
+:Total Amount: 33.59
+:Total Net: 27.99
+:Total Tax: 5.60
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 27.99         | VAT    | 20.00    | 5.60          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: SHELL
+:Supplier Company Registrations: GB235763255
+:Supplier Address: 166 gl asgow road edinburgh lothian eh
+:Supplier Phone Number: 01313399902
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Regular Diesel                       | 26.06    | 33.59        | 1.289      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 18:
+Receipt V5 Prediction
+=====================
+:Filename: slateford_20190830.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: gasoline
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-30
+:Purchase Time: 09:26
+:Total Amount: 51.48
+:Total Net: 42.90
+:Total Tax: 8.58
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 42.90         | VAT    | 20.00    | 8.58          |
+  +---------------+--------+----------+---------------+
+:Supplier Name:
+:Supplier Company Registrations: 243510593
+:Supplier Address: bp careline po box 352 sunbury on thames tw16 9at
+:Supplier Phone Number: 01314433161
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | DIESEL                               | 1.00     | 51.48        | 1299.00    |
+  +--------------------------------------+----------+--------------+------------+
+
+File 19:
+Receipt V5 Prediction
+=====================
+:Filename: editram_20190916.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: transport
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-26
+:Purchase Time: 12:40
+:Total Amount: 6.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: EDINBURGH AMS
+:Supplier Company Registrations:
+:Supplier Address:
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Adult Single                         |          | 6.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Adult Single From:                   |          | 6.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 20:
+Receipt V5 Prediction
+=====================
+:Filename: tram_20191116_006.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: transport
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-31
+:Purchase Time: 10:27
+:Total Amount: 6.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: DIR ADULT SINGLE
+:Supplier Company Registrations:
+:Supplier Address: befo 7 lor ler tt d te
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Adul Single                          |          |              | 22.00      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 21:
+Receipt V5 Prediction
+=====================
+:Filename: delano-20190323.pdf
+:Expense Locale: en; QAR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-21
+:Purchase Time: 13:49
+:Total Amount: 8.94
+:Total Net:
+:Total Tax:
+:Tip and Gratuity: 4.00
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: UAB DELANO
+:Supplier Company Registrations: LT255425515
+:Supplier Address: ozo g 18 vilnius
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Pepsi, 7 UP, Mirinda 0,51            |          | 1.99         | 1.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Supreme (Maxi)                       |          | 6.95         | 1.00       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 22:
+Receipt V5 Prediction
+=====================
+:Filename: macdonalds-20190323.pdf
+:Expense Locale: lt-CA; lt; CA; CAD;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-19
+:Purchase Time: 18:42
+:Total Amount: 6.20
+:Total Net:
+:Total Tax: 1.00
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 5.12          |        |          | 1.00          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MCDONALD'S
+:Supplier Company Registrations: LT115370113
+:Supplier Address: uab premier restaurants gedimino pr 15 vilnius
+:Supplier Phone Number: 37052622931
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Sefo mesainio su jautiena vidutinis kompleksas Coca Midutiniburyytt Zero 400 ml |          | 6.20         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 23:
+Receipt V5 Prediction
+=====================
+:Filename: vilniausbaras-20190323.pdf
+:Expense Locale: lt-LT; lt; LT; EUR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-20
+:Purchase Time: 21:54
+:Total Amount: 16.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: UAB VILNIAUS BARAS
+:Supplier Company Registrations: LT100010708310
+:Supplier Address: vilniaus g 35 vilnius
+:Supplier Phone Number: 304450859
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | V.E. Alaus laisk                     | 1.00     | 3.65         | 3.65       |
+  +--------------------------------------+----------+--------------+------------+
+  | Annetta                              | 1.00     | 4.55         | 4.55       |
+  +--------------------------------------+----------+--------------+------------+
+  | Cooper burgeris                      | 1.00     | 6.55         | 6.55       |
+  +--------------------------------------+----------+--------------+------------+
+  | Priedas:Garbanot                     | 1.00     | 1.25         | 1.25       |
+  +--------------------------------------+----------+--------------+------------+
+
+File 24:
+Receipt V5 Prediction
+=====================
+:Filename: eurowings-NFCZMQ.pdf
+:Expense Locale: de-CH; de; CH; CHF;
+:Purchase Category: transport
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-03
+:Purchase Time: 16:18
+:Total Amount: 78.99
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: UBER
+:Supplier Company Registrations: DE133500868
+:Supplier Address: grobenbaumer weg 6 40472 dusseldorf
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Gesamtflugpreis                      |          | 73.99        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Flugpreis                            |          | 50.78        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Staatliche Luftver rkehrssteuer      |          | 5.00         | 7.38       |
+  +--------------------------------------+----------+--------------+------------+
+  | X Sitzplatzreser vierung             | 1.00     | 78.99        | 5.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Fur Anrufe aus Deutschland           |          |              | 10.20      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 25:
+Receipt V5 Prediction
+=====================
+:Filename: norwegian_KPE6BN.pdf
+:Expense Locale: en; SEK;
+:Purchase Category: transport
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-01-20
+:Purchase Time: 13:40
+:Total Amount: 719.90
+:Total Net:
+:Total Tax: 0.00
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | VAT    | 0.00     | 0.00          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: N/A1
+:Supplier Company Registrations: NO965920358MVA; N0282664B; SE516405399201; FR03810456822
+:Supplier Address: pb 115 n 1366 lysaker norway tel
+:Supplier Phone Number: 4721490015
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Product description Stockholm-Arlanda - San Francisco-Oakland Premium |          | 644.92       | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | WALTER/JENS (328-7304274824) Die Reise beinhaltet |          | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Sitzreservierung                     |          | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | US INS USER FEE (XY)                 |          | 6.68         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | US INTL TRANSPORTATION TAX (US)      |          | 17.40        | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | LJ Tax                               |          | 26.10        | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | US APHIS FEE (XA)                    |          | 3.32         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Passenger Charge (YA)                |          | 15.97        | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | US CUSTOMS USER FEE (YC)             |          | 5.51         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Total Amount                         |          | 719.90       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 26:
+Receipt V5 Prediction
+=====================
+:Filename: norwegian_KQMDM9.pdf
+:Expense Locale: en; SEK;
+:Purchase Category: transport
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-14
+:Purchase Time:
+:Total Amount: 1006.49
+:Total Net:
+:Total Tax: 0.00
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | VAT    | 0.00     | 0.00          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: N/A1
+:Supplier Company Registrations: NO965920358MVA; N0282664B; SE516405399201; FR03810456822
+:Supplier Address: pb 115 n 1366 lysaker norway tel
+:Supplier Phone Number: 4721490015
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | San Francisco-Oakland - Tallinn PremiumFlex |          | 954.77       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | X Priority Boarding                  | 2.00     | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Premium Menu                         |          | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Sitzreservierung                     |          | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Fast Track                           |          | 0.00         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | US INTL TAX (US)                     |          | 16.50        | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | YQ Tax                               |          | 18.00        | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Passenger Charge (YA)                |          | 8.09         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Passenger Civil Aviation Security Service Fee (AY) |          | 5.35         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Passenger Facility Charge (XF)       |          | 3.78         | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | Total Amount                         |          | 1006.49      |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 27:
+Receipt V5 Prediction
+=====================
+:Filename: ryanair-FR2733.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: transport
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-21
+:Purchase Time: 06:07
+:Total Amount: 58.69
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: RYANAIR
+:Supplier Company Registrations:
+:Supplier Address:
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Plus-Tarif fur Erwachsene            | 1.00     | 57.15        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Gesamte Zahlungsgebuhr               |          | 0.70         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Reservierte Sitzplatze               | 1.00     | 0.84         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 28:
+Receipt V5 Prediction
+=====================
+:Filename: coffeefellow-20191020.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-10-19
+:Purchase Time: 15:20
+:Total Amount: 5.70
+:Total Net: 4.79
+:Total Tax: 0.91
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.79          | MWST   | 19.00    | 0.91          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: COFFEE
+:Supplier Company Registrations: DE238669298
+:Supplier Address: nikolaistrasse 55 04109 leipzig
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Chai medium                          |          | 3.40         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Muffin                               |          | 2.30         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 29:
+Receipt V5 Prediction
+=====================
+:Filename: kamps_20191116_002.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-04
+:Purchase Time: 07:15
+:Total Amount: 5.20
+:Total Net: 4.86
+:Total Tax: 0.34
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.86          |        | 7.00     | 0.34          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: KAMPS ERW BACK L S GMBH
+:Supplier Company Registrations:
+:Supplier Address: willy brand platz 7 04109 leipzig
+:Supplier Phone Number: 4934114909889
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Mohnplunder                          |          | 2.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | hi lchkaffee L                       |          | 3.20         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 30:
+Receipt V5 Prediction
+=====================
+:Filename: kamps_20191124_001.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-18
+:Purchase Time: 07:02
+:Total Amount: 5.30
+:Total Net: 4.95
+:Total Tax: 0.35
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.95          | MWST   | 7.00     | 0.35          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: KAMPS BA ERW CK S GMBH
+:Supplier Company Registrations:
+:Supplier Address: willy brand platz 7 04109 leipzig
+:Supplier Phone Number: 49341149098
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Streuseltaler                        |          | 2.10         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Milchkaffee L                        |          | 3.20         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 31:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190102.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-01-02
+:Purchase Time: 16:02
+:Total Amount: 40.72
+:Total Net:
+:Total Tax: 1.08
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.19          | MWST   | 19.00    | 0.80          |
+  +---------------+--------+----------+---------------+
+
+  |               | MWST   | 7.00     | 0.28          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: sp z giimmaische co strasse kg 14 4109 leipzig
+:Supplier Phone Number:
+:Line Items:
+
+File 32:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190217_002.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-14
+:Purchase Time: 08:13
+:Total Amount: 6.98
+:Total Net: 5.87
+:Total Tax: 1.11
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 5.87          | MWST   | 19.00    | 1.11          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: grosser burstah 50 52 20457 hamburg
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | BlaubeerMuffin                       | 1.00     | 2.49         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | CaffeLattev                          | 1.00     | 4.49         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 33:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190323_004.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-16
+:Purchase Time: 13:45
+:Total Amount: 8.78
+:Total Net:
+:Total Tax: 1.40
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.03          | MWST   | 19.00    | 0.76          |
+  +---------------+--------+----------+---------------+
+
+  | 3.35          | MWST   | 19.00    | 0.64          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: muensterplatz 21 53111 bonn
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | TazoChaiLattuslV + cLowFatMilkCALV 1 | 1.00     | 4.79         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | CaffeLatteG + clowFatMilkCAMG        | 1.00     | 3.99         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 34:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190323_009.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-07
+:Purchase Time: 16:27
+:Total Amount: 4.59
+:Total Net: 4.29
+:Total Tax: 0.30
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.29          | MWST   | 7.00     | 0.30          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: sp z 0 0 co kg neuer jungfernsteg 5 20354 hamburg
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | CaffeLattev                          | 1.00     | 4.59         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 35:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190519.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-19
+:Purchase Time: 17:55
+:Total Amount: 4.59
+:Total Net: 4.29
+:Total Tax: 0.30
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.29          | MWST   | 7.00     | 0.30          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: sp z 0 0 co kg willy brandt platz 7 4109 leipzig
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | CaffeLatteV                          | 1.00     | 4.59         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 36:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190521.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-21
+:Purchase Time: 14:58
+:Total Amount: 4.59
+:Total Net: 4.29
+:Total Tax: 0.30
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.29          | MWST   | 7.00     | 0.30          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: sp z 0 0 co kg neuer jungfernsteg 5 20354 hamburg
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | CaffeLatteV                          | 1.00     | 4.59         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 37:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190525.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-05-25
+:Purchase Time: 12:26
+:Total Amount: 9.98
+:Total Net:
+:Total Tax: 1.16
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 4.53          | MWST   | 19.00    | 0.86          |
+  +---------------+--------+----------+---------------+
+
+  | 4.29          | MWST   | 7.00     | 0.30          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: 218492293
+:Supplier Address: muensterplatz 21 53111 bonn
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | MangoPinapFrapp                      | 1.00     | 5.39         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | CaffeLatteV                          | 1.00     | 4.59         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 38:
+Receipt V5 Prediction
+=====================
+:Filename: starbucks-20190720_013.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-14
+:Purchase Time: 07:11
+:Total Amount: 7.78
+:Total Net: 6.54
+:Total Tax: 1.24
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 6.54          | MWST   | 19.00    | 1.24          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: STARBUCK'S
+:Supplier Company Registrations: DE811362273
+:Supplier Address: ust id nr 878319 lazaro
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Latte.v                              | 1.00     | 4.79         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BlaubeerMuffin                       | 1.00     | 2.99         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Master Card                          |          | 7.78         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 39:
+Receipt V5 Prediction
+=====================
+:Filename: vorort_20191124_002.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: restaurant
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-14
+:Purchase Time: 09:09
+:Total Amount: 15.60
+:Total Net: 13.20
+:Total Tax: 2.40
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | MWST   | 19.00    | 2.33          |
+  +---------------+--------+----------+---------------+
+
+  |               | MWST   | 7.00     | 0.07          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: VOR ORT KONDITOREI MBH
+:Supplier Company Registrations:
+:Supplier Address: bahnhofstr 21 82131 gauting
+:Supplier Phone Number: 08987181243
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Glaschen - Divers                    | 3.00     | 7.80         | 2.60       |
+  +--------------------------------------+----------+--------------+------------+
+  | Divers 7%, St.                       |          | 1.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ruhrei Tomate-Basilikum (GA)         |          | 4.20         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Kaffee, groB                         |          | 2.60         |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 40:
+Receipt V5 Prediction
+=====================
+:Filename: 20190119_002.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-01-18
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     | 1611.19  | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 41:
+Receipt V5 Prediction
+=====================
+:Filename: 20190202_THE MADISON HAMBURG_001.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-01
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: 4874101228; DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck'    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstock     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstick     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 42:
+Receipt V5 Prediction
+=====================
+:Filename: 20190202_THE MADISON HAMBURG.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-01-25
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 43:
+Receipt V5 Prediction
+=====================
+:Filename: citadines_08372561.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-05
+:Purchase Time: 09:46
+:Total Amount: 903.63
+:Total Net: 844.51
+:Total Tax: 59.12
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 844.51        |        | 7.00     | 59.12         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: CITADINES
+:Supplier Company Registrations:
+:Supplier Address: ludwig erhard str 7 d 20459 hamburg deutschland
+:Supplier Phone Number: 49040300618
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Apartment 34103/19#4220              |          | 92.56        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 01/04/19/#420              |          | 197.20       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 02/04/19/4420              |          | 254.15       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 03/04/19/0420              |          | 215.90       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 04/04/19/0420              |          | 143.82       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Mastercard bnr 8324 SPL              |          | 903.63       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 44:
+Receipt V5 Prediction
+=====================
+:Filename: citadines-20190331_Invoice.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-05
+:Purchase Time: 09:46
+:Total Amount: 903.63
+:Total Net: 844.51
+:Total Tax: 59.12
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 844.51        |        | 7.00     | 59.12         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: CITADINES
+:Supplier Company Registrations:
+:Supplier Address: ludwig erhard str 7 d 20459 hamburg deutschland
+:Supplier Phone Number: 49040300618
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Apartment 34103/19/4220              |          | 92.56        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 01/04/19/1420              |          | 197.20       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 02/04/1 9/0420             |          | 254.15       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 03/04/19/4420              |          | 215.90       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Apartment 04/04/19#420               |          | 143.82       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 45:
+Receipt V5 Prediction
+=====================
+:Filename: hampton_24361.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-30
+:Purchase Time: 08:25
+:Total Amount: 114.05
+:Total Net:
+:Total Tax: 13.81
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 197.29        | VAT    | 7.00     | 13.81         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: HILTON
+:Supplier Company Registrations: DE258996536; DE258996536; BERLINHRB1
+:Supplier Address: sitz berlin joachimsthaler str 34 10719 berlin
+:Supplier Phone Number: 490403023720
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Advance Deposit MC 2825              |          | 221.00       | 331422.00  |
+  +--------------------------------------+----------+--------------+------------+
+  | ADVANCED DEPOSIT DEBIT               |          | 221.00       | 3312333.00 |
+  +--------------------------------------+----------+--------------+------------+
+  | ADVANCED DEPOS T CREDIT              |          | 221.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 97.05        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 114.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | SUMMARY RECEIVABL E NET              | 1.00     | 8.32         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | 00% RECEIVABLE NET                   | 19.00    | 0.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | 100% TRADE RECEIVABLE NE 7.00%       | 7.00     | 197.29       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 46:
+Receipt V5 Prediction
+=====================
+:Filename: hampton_28646.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-23
+:Purchase Time: 09:20
+:Total Amount: 516.00
+:Total Net:
+:Total Tax: 35.63
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | VAT    | 7.00     | 32.47         |
+  +---------------+--------+----------+---------------+
+
+  |               | VAT    | 19.00    | 3.16          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: HILTON
+:Supplier Company Registrations: DE258996536; DE258996536; BERLINHRB2538B
+:Supplier Address: sitz berlin joachimsthalen str 34 10719 berlin
+:Supplier Phone Number: 490403023720
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Advance Deposit MC "5052             |          |              | 39625.00   |
+  +--------------------------------------+----------+--------------+------------+
+  | ADVANCED DEPOSIT DEBIT ADVANCED DEPOSI T CREDIT |          | 516.00       | 39626.00   |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 124.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 134.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 124.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST GUEST ROOM                 |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | 22/08/2019 BREAKFAST                 |          | 39799.00     |            |
+  +--------------------------------------+----------+--------------+------------+
+  | TRADE RECEIVABLE NE 00%              |          | 16.64        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | TRADE RECEIVABL E NET                |          | 0.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | 10%% TRADE RECEIVABLE NET            | 7.00     | 463.73       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 47:
+Receipt V5 Prediction
+=====================
+:Filename: hampton_20190411.pdf
+:Expense Locale: en; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-08
+:Purchase Time: 08:49
+:Total Amount: 476.00
+:Total Net:
+:Total Tax: 33.00
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 16.64         | VAT    | 19.00    | 3.16          |
+  +---------------+--------+----------+---------------+
+
+  | 426.36        | VAT    | 7.00     | 29.84         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: HILTON
+:Supplier Company Registrations: DE258996536; DE258996536; BERLINHRB1
+:Supplier Address: nordkanalstrasse 18 20097 hamburg
+:Supplier Phone Number: 490403023720
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | MC f5052                             |          |              | 4372000.00 |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 94.05        | 43736.00   |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 134.05       | 4377770.00 |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         | 4377770.00 |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 114.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 114.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | SUMMARY RECEI IVABLE NET             | 1.00     | 16.64        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | RECEIVABLE NET                       | 19.96    | 0.00         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | RECEIVABLE NET                       | 70096.00 | 426.36       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 48:
+Receipt V5 Prediction
+=====================
+:Filename: hampton-25789.pdf
+:Expense Locale: de-GB; de; GB; GBP;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-06-07
+:Purchase Time: 08:34
+:Total Amount: 776.56
+:Total Net:
+:Total Tax: 53.15
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 20.80         | VAT    | 19.00    | 3.95          |
+  +---------------+--------+----------+---------------+
+
+  | 702.61        | VAT    | 7.00     | 49.20         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: HILTON
+:Supplier Company Registrations: DE258996536; BERLINHRB12538B
+:Supplier Address: management gmbh sitz berlin joachimsthaler str 34 10719 berlin
+:Supplier Phone Number: 490403023720
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | CANCELLATION CHARGE CANCELLA TION CHARGE |          | 155.00       | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | GUES T ROOM BREAKFAST                |          | 150.05       | 0.00       |
+  +--------------------------------------+----------+--------------+------------+
+  | GUES T ROOM                          |          | 150.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAS T                           |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUES T ROOM                          |          | 150.05       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAST                            |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | GUEST ROOM                           |          | 151.61       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | BREAKFAS                             |          | 4.95         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | TRADE RECEIVABLE NET                 |          | 20.80        | 19009.00   |
+  +--------------------------------------+----------+--------------+------------+
+  | TRADE RECEIVABLE NET                 |          | 0.00         | 70096.00   |
+  +--------------------------------------+----------+--------------+------------+
+  | TRADE RECE IVABLE NET                |          | 702.61       | 70096.00   |
+  +--------------------------------------+----------+--------------+------------+
+
+File 49:
+Receipt V5 Prediction
+=====================
+:Filename: madison_497810.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-26
+:Purchase Time:
+:Total Amount: 440.00
+:Total Net: 411.21
+:Total Tax: 28.79
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 411.21        | MWST   | 7.00     | 28.79         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 germany hamburg
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    | 2404.19  | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 50:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5895702.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-04
+:Purchase Time:
+:Total Amount: 440.00
+:Total Net: 411.21
+:Total Tax: 28.79
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 411.21        | MWST   | 7.00     | 28.79         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuckt    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuckt    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck"    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 51:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5895707.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-04
+:Purchase Time:
+:Total Amount: 440.00
+:Total Net: 411.21
+:Total Tax: 28.79
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 411.21        | MWST   | 7.00     | 28.79         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 52:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5945547.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-26
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101122
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck"    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 53:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5972171.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-02
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101122
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck"    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 54:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5976009.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-09
+:Purchase Time:
+:Total Amount: 570.00
+:Total Net:
+:Total Tax: 35.99
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  |               | MWST   | 19.00    | 35.99         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuckt    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck *                          |          | 20.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 55:
+Receipt V5 Prediction
+=====================
+:Filename: madison_folio_g_cp_efolio5991896.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-08-16
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuckt    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 56:
+Receipt V5 Prediction
+=====================
+:Filename: madison-489347.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-08
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADI S
+:Supplier Company Registrations: DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernach ttung exklusive Fruhstuck   |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 57:
+Receipt V5 Prediction
+=====================
+:Filename: madison-490057.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-15
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   |          | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 58:
+Receipt V5 Prediction
+=====================
+:Filename: madison-490969.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-22
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MADISON A
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck'    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     | 2002.19  | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    | 2102.19  | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 59:
+Receipt V5 Prediction
+=====================
+:Filename: madison-492602.pdf
+:Expense Locale: de; SAR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-08
+:Purchase Time:
+:Total Amount: 550.00
+:Total Net: 514.02
+:Total Tax: 35.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 514.02        | MWST   | 7.00     | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck'    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 60:
+Receipt V5 Prediction
+=====================
+:Filename: madison-493304.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-03-15
+:Purchase Time:
+:Total Amount: 629.00
+:Total Net: 587.85
+:Total Tax: 41.15
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 587.85        | MWST   | 7.00     | 41.15         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MADISON
+:Supplier Company Registrations: DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck'    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 189.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 61:
+Receipt V5 Prediction
+=====================
+:Filename: madison-496987.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-04-18
+:Purchase Time:
+:Total Amount: 370.00
+:Total Net: 342.02
+:Total Tax: 27.98
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 33.61         | MWST   | 19.00    | 6.39          |
+  +---------------+--------+----------+---------------+
+
+  | 308.41        | MWST   |          | 21.59         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: THE A
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck * CHECK#1000040            |          | 20.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstickk    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    | 1704.19  | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck *                          |          | 20.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 62:
+Receipt V5 Prediction
+=====================
+:Filename: madison-502875.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: train
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-06-14
+:Purchase Time:
+:Total Amount: 440.00
+:Total Net: 411.21
+:Total Tax: 28.79
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 411.21        | MWST   | 7.00     | 28.79         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MADISON
+:Supplier Company Registrations: 4874101228; DE118696407
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck-    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 63:
+Receipt V5 Prediction
+=====================
+:Filename: madison-5036666.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory: plane
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-06-21
+:Purchase Time:
+:Total Amount: 570.00
+:Total Net: 530.83
+:Total Tax: 39.17
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 16.81         | MWST   | 19.00    | 3.19          |
+  +---------------+--------+----------+---------------+
+
+  | 514.02        | MWST   |          | 35.98         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MADISON
+:Supplier Company Registrations: DE118696407; 4874101228
+:Supplier Address: schaarsteinweg 4 20459 hamburg germany
+:Supplier Phone Number: 4940376660
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung exklusive Fruhstuck     |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Obernachtung exklusive Fruhstuck*    |          | 110.00       |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck *                          |          | 20.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 64:
+Receipt V5 Prediction
+=====================
+:Filename: mercure-37816396.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-07-05
+:Purchase Time:
+:Total Amount: 118.00
+:Total Net: 110.28
+:Total Tax: 7.72
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 110.28        | MWST   | 7.00     | 7.72          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MERCURE
+:Supplier Company Registrations: DE190145566
+:Supplier Address: massenbergstrasse 19 21 44787 bochum deutschland
+:Supplier Phone Number: 492349690
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung                         |          |              | 118.00     |
+  +--------------------------------------+----------+--------------+------------+
+
+File 65:
+Receipt V5 Prediction
+=====================
+:Filename: motelone_20191111.pdf
+:Expense Locale: en; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-11
+:Purchase Time:
+:Total Amount: 79.00
+:Total Net:
+:Total Tax:
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+:Supplier Name: MOTEL ONE
+:Supplier Company Registrations: DE254615074
+:Supplier Address: badstrasse 20 70372 stuttgart
+:Supplier Phone Number: 112184020
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Deposit 548113520/02 vom             | 1.00     | 90.50        | 90.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck                            | 1.00     | 11.50        | 11.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Lodging Guest Walter, Jens Room: 330 | 1.00     | 79.00        | 79.00      |
+  +--------------------------------------+----------+--------------+------------+
+  | Best Price including Breakfast       | 1.00     | 90.50        | 90.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck                            | 1.00     | 11.50        | 11.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | L Lodging                            | 1.00     | 79.00        | 79.00      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 66:
+Receipt V5 Prediction
+=====================
+:Filename: motelone_20191118.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-11-18
+:Purchase Time:
+:Total Amount: 80.50
+:Total Net:
+:Total Tax: 6.35
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 9.66          | MWST   | 19.00    | 1.84          |
+  +---------------+--------+----------+---------------+
+
+  | 64.49         | MWST   | 7.00     | 4.51          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MOTEL ONE
+:Supplier Company Registrations: 14316410694
+:Supplier Address: invalidenstrasse 54 10557 berlin
+:Supplier Phone Number: 49303641005
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Bestpreis mit Fruhstuck              | 1.00     | 80.50        | 80.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck                            | 1.00     | 11.50        | 11.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Logis                                | 1.00     | 69.00        | 69.00      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 67:
+Receipt V5 Prediction
+=====================
+:Filename: motelone-524544306.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: food
+:Purchase Subcategory: shopping
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-02-25
+:Purchase Time:
+:Total Amount: 161.00
+:Total Net:
+:Total Tax: 12.70
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 19.33         | MWST   | 19.00    | 3.67          |
+  +---------------+--------+----------+---------------+
+
+  | 128.97        | MWST   | 7.00     | 9.03          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MOTEL ONE
+:Supplier Company Registrations: 14316410694; DE254615074
+:Supplier Address: an der urania 12 14 10787 berlin
+:Supplier Phone Number: 493023631290
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Best Public Rate mit Fruhstuck       |          | 161.00       | 80.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | Fruhstuck                            |          | 23.00        | 11.50      |
+  +--------------------------------------+----------+--------------+------------+
+  | ogis                                 |          | 138.00       | 69.00      |
+  +--------------------------------------+----------+--------------+------------+
+
+File 68:
+Receipt V5 Prediction
+=====================
+:Filename: moxy_20191221_006.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-12-01
+:Purchase Time:
+:Total Amount: 48.00
+:Total Net: 44.86
+:Total Tax: 3.14
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 44.86         | VAT    | 7.00     | 3.14          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: JE NS ALTE
+:Supplier Company Registrations: DE294992073
+:Supplier Address: amela aarrrarhar sra 5 60549 frankfurimain
+:Supplier Phone Number: 496996759119
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Deposit Tax Transfer                 |          | 3.14         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Accommodation                        |          | 48.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Deposit Transfer at C/               |          | 44.86        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 69:
+Receipt V5 Prediction
+=====================
+:Filename: moxy-20191221_007.pdf
+:Expense Locale: en-GB; en; GB; GBP;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-12-01
+:Purchase Time:
+:Total Amount: 48.00
+:Total Net: 44.86
+:Total Tax: 3.14
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 44.86         | VAT    | 7.00     | 3.14          |
+  +---------------+--------+----------+---------------+
+:Supplier Name: MAIK WALTER G
+:Supplier Company Registrations: DE294992073
+:Supplier Address: amell aarararrarr srr 5 60549 frankfurvmain
+:Supplier Phone Number:
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Deposit Tax Transfer                 |          | 3.14         |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Accommodation                        |          | 48.00        |            |
+  +--------------------------------------+----------+--------------+------------+
+  | Deposit Transfer at C/               |          | 44.86        |            |
+  +--------------------------------------+----------+--------------+------------+
+
+File 70:
+Receipt V5 Prediction
+=====================
+:Filename: premierinn_GABCI19014325.pdf
+:Expense Locale: de-DE; de; DE; EUR;
+:Purchase Category: accommodation
+:Purchase Subcategory:
+:Document Type: EXPENSE RECEIPT
+:Purchase Date: 2019-09-23
+:Purchase Time: 16:36
+:Total Amount: 550.60
+:Total Net:
+:Total Tax: 39.75
+:Tip and Gratuity:
+:Taxes:
+  +---------------+--------+----------+---------------+
+  | Base          | Code   | Rate (%) | Amount        |
+  +===============+========+==========+===============+
+  | 33.28         |        | 19.00    | 6.32          |
+  +---------------+--------+----------+---------------+
+
+  |               |        | 7.00     | 33.43         |
+  +---------------+--------+----------+---------------+
+:Supplier Name: PREMIER INN
+:Supplier Company Registrations: DE297308020
+:Supplier Address: willy brand strale 21 20457 hamburg deutschland
+:Supplier Phone Number: 4904030393790
+:Line Items:
+  +--------------------------------------+----------+--------------+------------+
+  | Description                          | Quantity | Total Amount | Unit Price |
+  +======================================+==========+==============+============+
+  | Ubernachtung Ubernachtung am 24.09.19 | 1.00     | 77.00        | 77.00      |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung Ubernachtung am 25.09.19 | 1.00     | 135.00       | 135.00     |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung Ubernachtung am 26.09.19 | 1.00     | 82.00        | 82.00      |
+  +--------------------------------------+----------+--------------+------------+
+  | Ubernachtung Extras fur 24.09.19     | 1.00     | 217.00       | 217.00     |
+  +--------------------------------------+----------+--------------+------------+
+  | Premier Inn Extras fur 25.09.19      | 1.00     | 9.90         | 9.90       |
+  +--------------------------------------+----------+--------------+------------+
+  | Premier Inn Extras fur 26.09.19      | 1.00     | 9.90         | 9.90       |
+  +--------------------------------------+----------+--------------+------------+
+  | Premier Inn Extras fur 27.09.19      | 1.00     | 9.90         | 9.90       |
+  +--------------------------------------+----------+--------------+------------+
+  | Premier Inn                          | 1.00     | 9.90         | 9.90       |
+  +--------------------------------------+----------+--------------+------------+
+

@@ -4,6 +4,7 @@ import os
 import re
 import subprocess
 from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor
 from configparser import ConfigParser
 from dataclasses import dataclass
 from decimal import Decimal
@@ -11,19 +12,29 @@ from functools import lru_cache
 from pathlib import Path
 from pprint import pprint
 from typing import NamedTuple
-
+import nltk
 import aiohttp
 import asyncpg
-import boto3
 import pandas as pd
-import PyPDF2
 import pytesseract
 import requests_cache
 from babel.numbers import get_currency_symbol
 from PIL import Image
+from mindee import Client, documents
+import magic
 
 requests_cache.install_cache(expire_after=7200)
 
+
+@dataclass
+class FileInfo:
+    name: str = None
+    lang: str = None
+    type_: str = None
+    path: str = None
+    category: str = None
+    contents: str = None
+    
 class ConfigInfo(NamedTuple):
     host: str = None
     dbname: str = None
@@ -110,109 +121,102 @@ class ReceiptProcessor:
     def __init__(self):
         pass
 
-@dataclass
-class FileInfo:
-    lang: str = None
-    type_: str = None
-    path: str = None
-    category: str = None
-    contents: str = None
+
+class Wrapper:
+    def __init__(self):
+        pass
     
-    def _file_modifier(print_results=True):
+    def _receipt_writer(print_results=True):
         def decorator(func):
             @functools.wraps(func)
-            def wrapper(*args):
+            async def wrapper(*args):
+                files = await func(*args)
+                for i, j in enumerate(files, start=1):
+                    with open('receipt_info.txt', 'a') as file_info:
+                        file_info.write(f'File {i}:\n{j.contents}\n')
+
+                return files
+            return wrapper
+        return decorator
+    
+    def _receipt_parser(print_resuts=True):
+        def decorator(func):
+            async def wrapper(*args):
+                files = await func(*args)
                 new_files = []
-                files = func(*args)
-                for _, i in enumerate(files):
-                    path_ = Path(i)
-                    i = i.as_posix()
-                    lang_ = (lang := re.findall(r'/(\w{2})/', i)) and lang[0]
-                    if lang_:
-                        type_ = (type_ := re.findall(r'\.(pdf|json|csv|png|jpeg|txt)$', i.lower())) and type_[0]
-                        categ_ = (categ := re.findall(r'(\w+\s?\w+?)/', i[i.index('receipts'):])) and \
-                                    (categ[-1] if len(categ) == 4 else None)
-                        
-                        new_files.append(FileInfo(lang=lang_,
-                                                    type_=type_,
-                                                    path=path_,
-                                                    category=categ_))
-                #!> Use ML to determine what the None valued category should become
+                file_type_mapping = {
+                        'json': pd.read_json,
+                        'csv': pd.read_csv,
+                        'xls': pd.read_excel
+                    }
+                mindee_client = Client(api_key=ConfigInfo.get_config().apis['mindee_api'])
+                for _, file in enumerate(files, start=1):
+                    path_ = Path(file)
+                    file = file.as_posix()
+                    file_name = (file_name := re.findall(r'(\w+)\.[pdf|json|csv|png|jpeg|jpg|txt]', file)) and file_name[0]
+                    # type_ = (type_ := re.findall(r'\.(pdf|json|csv|png|jpeg|jpg|txt)$', file.lower())) and type_[0]
+                    type_ = magic.from_file(path_, mime=True).split('/')[-1]
+                    file = FileInfo(name=file_name, type_=type_, path=path_)
+                    if file.type_ in ('jpeg', 'png', 'jpg', 'pdf'):
+                        input_doc = mindee_client.doc_from_path(file.path)
+                        api_response = input_doc.parse(documents.TypeReceiptV5)
+                        file.contents = api_response.document
+                        new_files.append(file)
+                    
+                    if file.type_ in file_type_mapping:
+                        file.contents = file_type_mapping[file.type_](file.path)
+                        new_files.append(file)
+                    
                 return new_files
             return wrapper
         return decorator
     
-    def _file_reader(print_resuts=True):
-        def decorator(func):
-            def wrapper(*args):
-                all_files = func(*args)
-                for file in all_files:
-                    if file.type_ in ('pdf', 'jpeg', 'png'):
-                        if file.type_.lower() == 'pdf':
-                            pdf_file = open(file.path, 'rb')
-                            pdf_reader = PyPDF2.PdfReader(pdf_file)
-                            if len(pdf_reader.pages) > 1:
-                                for idx in range(len(pdf_reader.pages)):
-                                    page_contents = pdf_reader.pages[idx].extract_text()
-                                    file.contents = page_contents
-                            else:
-                                page_contents = pdf_reader.pages[0].extract_text()
-                                file.contents = page_contents
-                return all_files
-            return wrapper
-        return decorator
-    
-    def _translate_contents(print_results=True):
-        def decorator(func):
-            @functools.wraps(func)
-            def wrapper(*args):
-                translate_client = boto3.client('translate', region_name='us-east-1')
-                files = func(*args)
-                try:
-                    for file in files:
-                        response = translate_client.translate_text(
-                            Text=file.contents,
-                            SourceLanguageCode='auto',
-                            TargetLanguageCode='en'
-                        )
-                        translated_text = response['TranslatedText']
-                        file.contents = translated_text
-                    return files
+    # def _receipt_(print_results=True):
+    #     def decorator(func):
+    #         @functools.wraps(func)
+    #         async def wrapper(*args):
+    #             files = await func(*args)
+    #             try:
+    #                 for file in files:
+    #                     if file.type_ not in ('csv', 'json'):
+    #                         tokens = nltk.word_tokenize(file.contents)
+    #                         detected_lang = detect(' '.join(tokens))
+    #                         # if file.lang != detected_lang:
+    #                         #     file.lang = detected_lang
+    #                     else:
+    #                         pass
+    #                 return files
 
-                except translate_client.exceptions.UnsupportedLanguagePairException as e:
-                    # print(f"Unsupported language pair: {e}")
-                    pass
-
-                except Exception as e:
-                    # print(f"Error occurred during translation: {e}")
-                    pass
+    #             except Exception as e:
+    #                 # print(f"Unsupported language pair: {e}")
+    #                 pass
                 
-                return files
-            return wrapper
-        return decorator
+    #             return files
+    #         return wrapper
+    #     return decorator
 
 class TextExtractor:
     def __init__(self):
         self.dirs = Path(__file__).parent.absolute() / ConfigInfo.get_dir().dirs['dir']
         self.files = None
     
-    @FileInfo._translate_contents()
-    @FileInfo._file_reader()
-    @FileInfo._file_modifier()
-    def get_files(self):
+    # @Wrapper._translate_contents()
+    # @Wrapper._file_reader()
+    @Wrapper._receipt_writer()
+    @Wrapper._receipt_parser()
+    async def get_files(self):
         self.files = [Path(root) / i for root, _, files in os.walk(self.dirs) for i in files if files]
         return self.files
 
 
-class Wrapper:
-    pass
-
 async def main():
-    a = TextExtractor().get_files()
-    pprint(a)
+    all_files = await TextExtractor().get_files()
+    print(all_files)
+            
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
 
 #!> ReceiptProcessor class
     #?> Input various files for each type of expense bill for ML
