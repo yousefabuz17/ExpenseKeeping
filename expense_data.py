@@ -14,9 +14,12 @@ from functools import lru_cache
 from pathlib import Path
 from pprint import pprint
 from typing import NamedTuple
-import black
-import aiohttp, aiohttp_cache
+import base64
+
+import aiohttp
+import aiohttp_cache
 import asyncpg
+import black
 import magic
 import pandas as pd
 import requests_cache
@@ -25,6 +28,11 @@ from mindee import Client, documents
 
 requests_cache.install_cache(expire_after=7200)
 
+
+@dataclass
+class Args:
+    arg1: list|str = None
+    arg2: str = None
 
 @dataclass
 class FileInfo:
@@ -131,7 +139,8 @@ class Wrapper:
     def __init__(self):
         pass
     
-    def _receipt_writer(print_results=True):
+    @staticmethod
+    def _receipt_writer():
         def decorator(func):
             @functools.wraps(func)
             async def wrapper(*args):
@@ -160,7 +169,8 @@ class Wrapper:
             return wrapper
         return decorator
     
-    def _receipt_parser(print_resuts=True):
+    @staticmethod
+    def _receipt_parser():
         def decorator(func):
             async def wrapper(*args):
                 files = await func(*args)
@@ -201,7 +211,8 @@ class Wrapper:
             return wrapper
         return decorator
     
-    def _modify_json(print_results=True):
+    @staticmethod
+    def _modify_json():
         def decorator(func):
             @functools.wraps(func)
             async def wrapper(*args):
@@ -225,7 +236,8 @@ class Wrapper:
             return wrapper
         return decorator
     
-    def _json_to_pd(print_results=True):
+    @staticmethod
+    def _json_to_pd():
         def decorator(func):
             @functools.wraps(func)
             async def wrapper(*args):
@@ -240,9 +252,9 @@ class Wrapper:
                 return df
             return wrapper
         return decorator
-                
     
-    def _clean_pd(print_results=True):
+    @staticmethod
+    def _clean_pd():
         def decorator(func):
             @functools.wraps(func)
             async def wrapper(*args):
@@ -250,12 +262,56 @@ class Wrapper:
                 pd.set_option('display.max_columns', None)
                 df["Time"] = df["Time"].replace("", float("nan")).str.strip()
                 df['Time'].fillna('00:00', inplace=True)
+                df['Time'] = df['Time'].apply(lambda time: time if time=='00:00' else dt.strptime(time[:5], '%H:%M').strftime('%I:%M %p'))
                 df['Vendor'] = df['Vendor'].replace('', float('nan')).str.strip()
                 df['Vendor'].fillna('UNKNOWN', inplace=True)
+                df['Sub-Category'] = df['Sub-Category'].replace('', float('nan')).str.strip()
+                df['Sub-Category'].fillna('unknown', inplace=True)
+                # df['Contents'] = df['Contents'].apply(lambda i: base64.b64encode(i.encode()))
+                language = str(df['Language']).split(';')[-3].lstrip()
+                df['Language'] = language if language.isupper() else df['Language'].split(';')[-2].lstrip()
+                df['Amount'] = df['Amount'].apply(lambda i: '{}{}'.format('$' if '$' not in i else '', i))
                 df.index = range(1, len(df)+1)
                 return df
             return wrapper
         return decorator
+    
+    @staticmethod
+    def _merge_all():
+        def decorator(func):
+            async def wrapper(*args):
+                csv_files = await func(*args)
+                csvs = csv_files.arg1
+                df = csv_files.arg2
+                csvs_files = []
+                for _, csv in enumerate(csvs):
+                    read_csv = pd.read_csv(csv)
+                    new_csv = read_csv.loc[:, ['Date', 'Category', 'Note', 'Amount', 'Currency']]
+                    csvs_files.append(new_csv)
+                    new_df = pd.concat([df, new_csv])
+                return new_df
+            return wrapper
+        return decorator
+    
+    @staticmethod
+    def _clean_merged():
+        def decorator(func):
+            async def wrapper(*args):
+                df = await func(*args)
+                df['Vendor'].fillna('UNKNOWN', inplace=True)
+                df['Language'].fillna('N/A', inplace=True)
+                df['Sub-Category'].fillna('unknown', inplace=True)
+                df['Note'].fillna('N/A', inplace=True)
+                df['Contents'].fillna('N/A', inplace=True)
+                df['Contents'] = df['Contents'].apply(lambda i: base64.b64encode(i.encode('utf-8')) if i!='N/A' else 'N/A')
+                df['Amount'] = df['Amount'].apply(lambda i: '{}{}'.format('$' if '$' not in str(i) else '', i))
+                date_time = [Args(*i.split()) for i in df['Date'].iloc[29:].values.tolist()]
+                df['Date'].iloc[29:] = [dt.strptime(i.arg1, '%m/%d/%Y').strftime('%m-%d-%Y') for i in date_time]
+                df['Time'].iloc[29:] = [dt.strptime(i.arg2, '%H:%M').strftime('%I:%M %p') for i in date_time]
+                return df
+            return wrapper
+        return decorator
+
 
 
 class TextExtractor:
@@ -292,6 +348,13 @@ class TextExtractor:
         modified_json = json.load(open(Path(__file__).parent.absolute() / 'modified_receipts.json', encoding='utf-8'))
         return modified_json
     
+    @Wrapper._clean_merged()
+    @Wrapper._merge_all()
+    async def parse_csvs(self, df):
+        self.csv_files = [Path(root) / i for root, _, files in os.walk(self.dirs) for i in files if files and magic.from_file(Path(Path(root) / i), mime=True).split('/')[-1] == 'csv']
+        zipped = Args(arg1=self.csv_files, arg2=df)
+        return zipped
+    
 @aiohttp_cache.cache(expires=7200)
 async def main():
     text_extract = TextExtractor()
@@ -301,7 +364,8 @@ async def main():
     #                 text_extract.receipt_json()
     #             )
     df = await text_extract.get_pd()
-    print(df)
+    # print(df)
+    print(await text_extract.parse_csvs(df))
     
 #!> Merge other csv files
 
