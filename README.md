@@ -2,9 +2,9 @@
 
 **``ExpenseKeeping``** is a Python project designed to help you manage your expenses by extracting and storing data from various types of files, including **``PDFs, CSVs, TXTs, and JSONs``**. It uses **``OCR (Optical Character Recognition)``** to extract relevant information from receipt files, and if needed, it can also translate text to facilitate accurate analysis. The extracted data is then saved into a database, allowing you to track your expenses over time. Additionally, the project provides a visual graph to visualize your spending patterns.
 
-**Note**: The receipts used in this project were found on [Kaggle](https://www.kaggle.com/):
-- [``My Expenses Data``](https://www.kaggle.com/datasets/tharunprabu/my-expenses-data)
-- [``My Receipts (PDF Scans``)](https://www.kaggle.com/datasets/jenswalter/receipts)
+**Note**: The receipts used in this project were found on <a href='https://www.kaggle.com/' target='_blank'>``Kaggle``</a>:
+- <a href='https://www.kaggle.com/datasets/tharunprabu/my-expenses-data' target='_blank'>``My Expenses Data``</a>
+- <a href='https://www.kaggle.com/datasets/jenswalter/receipts' target="_blank">``My Receipts (PDF Scans)``</a>
 
 ## Table of Contents
 - [Features](#features)
