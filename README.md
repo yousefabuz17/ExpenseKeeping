@@ -50,8 +50,8 @@ dir = ./receipts
 - [x] Configuration File
 - [x] Text Translation & Currency Conversion
 - [x] Text Extraction from various filetypes using OCR
-- [ ] Data Storage in a Database
+- [x] Data Storage in a Database
 - [x] Support for CSV, TXT, and JSON Files
 - [ ] Expense Analytics for Insights
-- [ ] Visual Graphs for Expense Tracking
+- [x] Visual Graphs for Expense Tracking
 ---
