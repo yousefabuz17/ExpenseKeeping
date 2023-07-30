@@ -2,8 +2,6 @@ import asyncio
 import functools
 import json
 import os
-import re
-import subprocess
 from collections import OrderedDict
 from concurrent.futures import ThreadPoolExecutor
 from configparser import ConfigParser
@@ -12,53 +10,58 @@ from datetime import datetime as dt
 from decimal import Decimal
 from functools import lru_cache
 from pathlib import Path
-from pprint import pprint
-from typing import NamedTuple
-import base64
+from typing import Dict, List, NamedTuple, Optional, OrderedDict
 
 import aiohttp
 import aiohttp_cache
-import asyncpg
 import black
 import magic
+import matplotlib.pyplot as plt
 import pandas as pd
+import psycopg
 import requests_cache
+import seaborn as sns
 from babel.numbers import get_currency_symbol
+from matplotlib import dates as mpl_dates
 from mindee import Client, documents
+from pydantic import BaseModel
+from wordcloud import WordCloud
 
 requests_cache.install_cache(expire_after=7200)
 
-
 @dataclass
 class Args:
-    arg1: list|str = None
-    arg2: str = None
+    arg1: Optional[List[str]] = None
+    arg2: Optional[str] = None
+    arg3: Optional[str] = None
 
 @dataclass
-class FileInfo:
-    name: str = None
-    lang: str = None
-    type_: str = None
-    path: str = None
-    category: str = None
-    subcat: str = None
-    contents: str = None
-    date: str = None
-    time: str = None
-    amount: str = None
-    vendor: str = None
-    currency: str = None
-    
+class FileInfo(BaseModel):
+    name: Optional[str] = None
+    lang: Optional[str] = None
+    type_: Optional[str] = None
+    path: Optional[str] = None
+    category: Optional[str] = None
+    subcat: Optional[str] = None
+    contents: Optional[str] = None
+    date: Optional[str] = None
+    time: Optional[str] = None
+    amount: Optional[str] = None
+    vendor: Optional[str] = None
+    currency: Optional[str] = None
+    symbol: Optional[str] = None
+    note: Optional[str] = None
+
 class ConfigInfo(NamedTuple):
-    host: str = None
-    dbname: str = None
-    user: str = None
-    password: str = None
+    host: Optional[str] = None
+    dbname: Optional[str] = None
+    user: Optional[str] = None
+    password: Optional[str] = None
     apis: OrderedDict = None
     
     @dataclass
     class DirInfo:
-        dirs: dict = None
+        dirs: Dict = None
     
     @lru_cache(maxsize=None)
     @staticmethod
@@ -78,7 +81,7 @@ class ConfigInfo(NamedTuple):
         return directories
 
 @dataclass
-class Currency:
+class Currency(BaseModel):
     rate: float
     sym: str
     
@@ -103,36 +106,72 @@ class Currency:
         return f'{currency_data[to_curr].sym}{rate * Decimal(total.strip("$")):.2f}'
 
 class ExpenseDB:
-    config: ConfigInfo
-    connection = None
-    cursor = None
+    def __init__(self, data):
+        self.data = data
+        self.sql_script = Args(*open(Path(__file__).parent.absolute() / 'expense_db.sql').read().split('\n\n'))
+        self.connection = None
+        self.cursor = None
     
-    @classmethod
-    async def _sql_connect(cls):
-        if cls.connection is None or cls.cursor is None:
-            await cls.db_connect()
-        return cls.connection, cls.cursor
-    
-    @classmethod
-    async def db_connect(cls):
-        cls.config = ConfigInfo.get_config()
-        try:
-            cls.connection = await asyncpg.connect(
-                host=cls.config.host,
-                dbname=cls.config.dbname,
-                user=cls.config.user,
-                password=cls.config.password)
-            
-            cls.cursor = cls.connection.cursor()
+    def _sql_connect(self):
+        if self.connection is None or self.cursor is None:
+            self.config = ConfigInfo.get_config()
+            try:
+                self.connection = psycopg.connect(
+                    host=self.config.host,
+                    dbname=self.config.dbname,
+                    user=self.config.user,
+                    password=self.config.password
+                )
+                self.cursor = self.connection.cursor()
 
-        except (asyncpg.ConnectionFailure, asyncpg.ConfigFileError, asyncpg.ConnectionException) as e:
-            cls.connection = None
-            cls.cursor = None
-            return f'Error failed while trying to connect to database {e}'
-    
-    @classmethod
-    def update_db(cls):
-        pass
+            except (psycopg.ConnectionFailureError, psycopg.ConfigFileError, psycopg.ConnectionDoesNotExistError) as e:
+                self.connection = None
+                self.cursor = None
+                return f'Error failed while trying to connect to database {e}'
+
+    def update_db(self):
+        self._sql_connect()
+        data = self.data.to_records(index=False).tolist()
+        query1 = self.sql_script.arg1
+        query2 = self.sql_script.arg2
+        self.cursor.execute(query1)
+        self.connection.commit()
+        for _, item in enumerate(data):
+            data_ = FileInfo(date=item[0],
+                            time=item[1],
+                            lang=item[2],
+                            currency=item[3],
+                            symbol= item[4],
+                            category=item[5],
+                            subcat=item[6],
+                            amount=item[7],
+                            vendor=item[8],
+                            note=item[10]
+                            )
+            self.cursor.execute(query2, (data_.date,
+                                            data_.time,
+                                            data_.lang,
+                                            data_.currency,
+                                            data_.symbol,
+                                            data_.category,
+                                            data_.subcat,
+                                            data_.amount,
+                                            data_.vendor,
+                                            data_.note))
+        
+        self.connection.commit()
+        self._close_db()
+
+    def _close_db(self):
+        if self.connection:
+            try:
+                self.connection.rollback()
+                print(f"\nDatabase Updated Successfully.")
+            except psycopg.Error as e:
+                print(f"An error occurred during transaction rollback: {e}")
+            self.cursor.close()
+            self.connection.close()
+            print(f"Database Server Closed.")
 
 
 class Wrapper:
@@ -270,7 +309,7 @@ class Wrapper:
                 # df['Contents'] = df['Contents'].apply(lambda i: base64.b64encode(i.encode()))
                 language = str(df['Language']).split(';')[-3].lstrip()
                 df['Language'] = language if language.isupper() else df['Language'].split(';')[-2].lstrip()
-                df['Amount'] = df['Amount'].apply(lambda i: '{}{}'.format('$' if '$' not in i else '', i))
+                df['Amount'] = df['Amount'].apply(lambda i: float(i.strip('$')))
                 df.index = range(1, len(df)+1)
                 return df
             return wrapper
@@ -279,10 +318,12 @@ class Wrapper:
     @staticmethod
     def _merge_all():
         def decorator(func):
+            @functools.wraps(func)
             async def wrapper(*args):
                 csv_files = await func(*args)
                 csvs = csv_files.arg1
                 df = csv_files.arg2
+                df['Category'] = df['Category'].apply(lambda i: i.title())
                 csvs_files = []
                 for _, csv in enumerate(csvs):
                     read_csv = pd.read_csv(csv)
@@ -296,25 +337,160 @@ class Wrapper:
     @staticmethod
     def _clean_merged():
         def decorator(func):
+            @functools.wraps(func)
             async def wrapper(*args):
                 df = await func(*args)
                 df['Vendor'].fillna('UNKNOWN', inplace=True)
-                df['Language'].fillna('N/A', inplace=True)
+                df['Language'].fillna('EN', inplace=True)
                 df['Sub-Category'].fillna('unknown', inplace=True)
+                df['Time'] = df['Time'].apply(lambda i: dt.strptime(i, '%H:%M').strftime('%I:%M %p') if i=='00:00' else i)
                 df['Note'].fillna('N/A', inplace=True)
                 df['Contents'].fillna('N/A', inplace=True)
-                df['Contents'] = df['Contents'].apply(lambda i: base64.b64encode(i.encode('utf-8')) if i!='N/A' else 'N/A')
-                df['Amount'] = df['Amount'].apply(lambda i: '{}{}'.format('$' if '$' not in str(i) else '', i))
+                # df['Contents'] = df['Contents'].apply(lambda i: base64.b64encode(i.encode('utf-8')) if i!='N/A' else 'N/A')
                 date_time = [Args(*i.split()) for i in df['Date'].iloc[29:].values.tolist()]
-                df['Date'].iloc[29:] = [dt.strptime(i.arg1, '%m/%d/%Y').strftime('%m-%d-%Y') for i in date_time]
-                df['Time'].iloc[29:] = [dt.strptime(i.arg2, '%H:%M').strftime('%I:%M %p') for i in date_time]
+                df.reset_index(drop=True, inplace=True)
+                df.loc[29:, 'Date'] = [dt.strptime(i.arg1, '%m/%d/%Y').strftime('%m-%d-%Y') for i in date_time]
+                df.loc[29:, 'Time'] = [dt.strptime(i.arg2, '%H:%M').strftime('%I:%M %p') for i in date_time]
+                df.loc[29:, 'Date'] = [dt.strptime(i.arg1, '%m/%d/%Y').strftime('%m-%d-%Y') for i in date_time]
+                df.loc[29:, 'Time'] = [dt.strptime(i.arg2, '%H:%M').strftime('%I:%M %p') for i in date_time]
+                currency_sym = df['Currency'].apply(get_currency_symbol)
+                insert_index = df.columns.get_loc('Currency') + 1
+                df.insert(insert_index, 'Symbol', currency_sym)
                 return df
             return wrapper
         return decorator
 
 
+class Plotter:
+    def __init__(self):
+        pass
+    
+    #TODO:
+        #^//: Time Series Plot- Plot the amount spent over time to see spending trends and patterns. Use a line plot or an area plot for this.
+        #^//: Bar-Chart (Category, Sub-Category)- total spending for each category or sub-category. Helps identify which categories account for the most spending.
+        #^: Stacked Bar Chart: Visualize the total spending for each category, segmented by language or currency. Helps compare spending across different regions or currencies.
+        #^: Grouped Bar Chart: Group expenses by language or currency and use a bar chart to compare spending across these groups.
+        #^//: Pie Chart: Use a pie chart to visualize the percentage of spending for each category. Quick overview of the distribution of expenses.
+        #^: Histogram: Create a histogram to understand the distribution of expense amounts. Helps identify the most common spending range.
+        #^: Box Plot: Use a box plot to visualize the spread of expense amounts for each category. Shows the median, quartiles, and outliers.
+        #^: Line Plot: Use a line plot to visualize the spread of expense amounts for each language or currency.
+        #^//: Scatter Plot: Plot the expenses against time or amount to look for any patterns or correlations.
+        #^//: Word Cloud: Create a word cloud using the notes column to visualize the most frequently mentioned words or phrases in your expenses.
+    
+    # @staticmethod
+    # def _plot_all()
+    
+    @staticmethod
+    def _scattplot_time_series():
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                dataframe = await func(*args)
+                sns.set_style('darkgrid')
+                df = dataframe.groupby('Date')['Amount'].sum().reset_index()
+                df['Date'] = pd.to_datetime(df['Date'])
+                
+                _, ax = plt.subplots(figsize=(10, 6))
+                scatter = ax.scatter(df['Date'], df['Amount'], c=pd.DatetimeIndex(df['Date']).year,
+                                    cmap='rainbow', marker='o', edgecolors='blue', alpha=1)
+                
+                date_format = mpl_dates.DateFormatter('%b, %d %Y')
+                ax.xaxis.set_major_formatter(date_format)
+                plt.xlabel('Date')
+                plt.ylabel('Total Amount Spent per Day')
+                plt.title('Expense Time Series by Year', pad=10)
+                plt.xticks(rotation=20, ha='right')
+                
+                legend = plt.legend(*scatter.legend_elements(), title='Year')
+                plt.gca().add_artist(legend)
+                
+                plt.tight_layout()
+                plt.show()
+                return df
+            return wrapper
+        return decorator
+    
+    @staticmethod
+    def _word_cloud_cats():
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                df = await func(*args)
+                notes = ' '.join([i.title() for i in pd.concat([df['Category'], df['Sub-Category']]) if i != 'unknown'])
+                wordcloud = WordCloud(width=800, height=400,
+                                    background_color='white', collocations=False).generate(notes)
+                plt.figure(figsize=(10, 5))
+                plt.imshow(wordcloud, interpolation='bilinear')
+                plt.axis('off')
+                plt.show()
+                return df
+            return wrapper
+        return decorator
+    
+    @staticmethod
+    def _word_cloud_notes():
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                df = await func(*args)
+                notes = ' '.join([i for i in pd.concat([df['Note'], df['Vendor']]) if i != 'N/A' and i != 'UNKNOWN'])
+                wordcloud = WordCloud(width=800, height=400,
+                                    background_color='white', collocations=False,
+                                    min_word_length=3).generate(notes)
+                plt.figure(figsize=(10, 5))
+                plt.imshow(wordcloud, interpolation='bilinear')
+                plt.axis('off')
+                plt.show()
+                return df
+            return wrapper
+        return decorator
+    
+    @staticmethod
+    def _pie_chart_cat():
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                df = await func(*args)
+                sns.set_style('white')
+                category_totals = df.groupby('Category')['Amount'].sum()
+                category_totals = category_totals[category_totals > 200]
+                categories = category_totals.index.tolist()
+                amounts = category_totals.values.tolist()
+                _, ax = plt.subplots(figsize=(12, 6))
+                ax.pie(amounts, labels=categories, shadow=True, rotatelabels=True,
+                                labeldistance=1.1, autopct='%1.2f%%')
+                plt.title('Pie Chart per Category', pad=10)
+                plt.xticks(rotation=20, ha='right')
+                plt.show()
+                return df
+            return wrapper
+        return decorator
+    
+    @staticmethod
+    def _barplot_cats():
+        def decorator(func):
+            @functools.wraps(func)
+            async def wrapper(*args):
+                df = await func(*args)
+                sns.set_style('darkgrid')
+                category_totals = df.groupby('Category')['Amount'].sum()
+                categories = category_totals.index.tolist()
+                amounts = category_totals.values.tolist()
+                _, ax = plt.subplots(figsize=(12, 6))
+                ax.bar(categories, amounts, color=plt.colormaps['tab10'](amounts))
+                plt.xlabel('Categories')
+                plt.ylabel('Total Amount', labelpad=20)
+                plt.title('Total Amount per Category', pad=10)
+                plt.xticks(rotation=20, ha='right')
+                plt.tight_layout()
+                plt.show()
+                return df
+            return wrapper
+        return decorator
+    
 
-class TextExtractor:
+
+class ExpenseKeeping:
     _instance = False
     
     def __new__(cls, *args, **kwargs):
@@ -355,80 +531,48 @@ class TextExtractor:
         zipped = Args(arg1=self.csv_files, arg2=df)
         return zipped
     
+    # async def activate_parser(self):
+    #     await asyncio.gather(
+    #                 self.parse_receipts(),
+    #                 self.receipt_json()
+    #             )
+    
 @aiohttp_cache.cache(expires=7200)
 async def main():
-    text_extract = TextExtractor()
+    #!> Make a method for asyncio/ThreadPool
+    #!> If json file already exists and contains data, skip OCR process
+    #!> Merge all plots into one figure by default
+    #!> Make Error Handling class, all classes will inherit this
+    #!> Make a final analysis output based on expense findings
+    expense = ExpenseKeeping()
     
-    # parsed_receipts = await asyncio.gather(
-    #                 text_extract.parse_receipts(),
-    #                 text_extract.receipt_json()
+    # await asyncio.gather(
+    #                 expense.parse_receipts(),
+    #                 expense.receipt_json()
     #             )
-    df = await text_extract.get_pd()
-    # print(df)
-    print(await text_extract.parse_csvs(df))
+    # await asyncio.gather(
+    #     expense.get_pd(),
+    #     expense.parse_csvs()
+    # )
+    df = await expense.get_pd()
+    expense_df = await expense.parse_csvs(df)
+    # expense_db = ExpenseDB(expense_df)
+    # expense_db.update_db()
+    # print(expense_df)
     
-#!> Merge other csv files
+    
+    #!?> Move this to ExpenseKeeping class
+    # @Plotter._scattplot_time_series()
+    # @Plotter._word_cloud_cats()
+    # @Plotter._word_cloud_notes()
+    @Plotter._pie_chart_cat()
+    # @Plotter._barplot_cats()
+    async def graph_expense(data):
+        return data
+    
+    print(await graph_expense(expense_df))
+
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
-
-#!> ReceiptProcessor class
-    #?> Input various files for each type of expense bill for ML
-    #?> Checks receipt type, if PDF checks expense category else return CSV/JSON
-    #?> Returns the detected receipt type
-    #! Steps:
-        #?> Gather and Prepare Data:
-            #? Collect labeled data for different types of expense bills. This data should include various file formats (e.g., PDF, PNG/JPEG, CSV) and corresponding labels indicating the type of expense bill (e.g., hotel bill, restaurant bill, grocery bill). Preprocess the data to extract relevant features and convert text-based files into a structured format suitable for ML.
-        #?> Feature Extraction:
-            #? For each file type, extract relevant features that can help distinguish different types of expense bills. For PDF or image files, use Optical Character Recognition (OCR) to extract text. For CSV files, identify key columns like 'category,' 'date,' 'total/amount,' 'currency,' and 'vendor.' The extracted features will serve as input data for your ML model.
-        #?> Data Labeling and Splitting:
-            #? Label the data appropriately with the correct expense bill types. Split the data into training and testing sets for model training and evaluation.
-        #?> Model Selection:
-            #? Choose a suitable ML model that can handle multi-class classification (since you have multiple types of expense bills). Common choices include Random Forest, Support Vector Machines (SVM), or Neural Networks.
-        #?> Model Training:
-            #? Train the ML model using the labeled training data and the extracted features.
-
-#!> TextExtractor Class
-    #?> Input file(s)
-    #?> Detect file format with ReceiptProcessor class (Each format will be parsed differently)
-    #! If PDF or PNG/JPEG:
-        #?> Page Detection
-            #? Page Segmentation: Receipts with multiple correlating pages before extracting info
-            #? Page Detection: Receipts with multiple non-correlating pages
-            #? ML to detect receipt type
-        #?> OCR Text Extraction
-            #? Detect language of text
-            #? Region of Interest (ROI) Detection (Date, Vendor, Total Amount)
-            #? Date Recognition and parsing to recognize date formats from different regions/locales
-                #? Once language detected and data collected, find any word translated to 'total'-'cash'-'credit'
-                #? Depending on currency, convert to USD
-    #! If CSV:
-        #?> Column detection
-            #? Get CSV delimiter
-            #? Find columns that matches 'category'-'date'-'total/amount'-'currency'-'vendor'
-            #? Date Recognizition: If dates vary to ensure consistency
-
-#!> DataStorage class
-    #?> Responsible for interacting with the database (Postgres, SQLite) to store and retrieve expense data.
-    #?> Provides methods to save the processed expense data to the database.
-    #! Returns:
-        #? table_id |     date   |   receipt_type  | total_amount | vendor
-        #*-----------------------------------------------------------------*#
-        #?     1    | 07/01/2023 |    hotel_bill   |   $9,127     | Hilton
-
-#!> ExpenseKeeper class
-    #?> Main class that ties everything together and acts as a facade for the expense keeping functionality.
-    #?> Utilizes the other classes to process different types of receipt files and store the data in the database.
-    #! ExpenseFormatter class (Nested class)
-        #? Handles formatting the expense data in different output formats (CSV, JSON, etc.).
-        #? Provides methods to export the data to various formats.
-
-#!> ErrorHandler class
-    #? Contains methods to handle errors and exceptions throughout the system gracefully.
-    #? Provides user-friendly error messages for various scenarios.
-
-#! Considerations:
-    #? Data Storage (Postgres, SQLite)
-    #? Output Format (CSV, JSON)
-    #? Error Handling
